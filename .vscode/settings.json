@@ -1,0 +1,7 @@
+{
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.colorDecorators": "on",
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "javascript"
+    }
+}
