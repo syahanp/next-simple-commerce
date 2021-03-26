@@ -1,6 +1,10 @@
 module.exports = {
-    purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-    darkMode: false, // or 'media' or 'class'
+    purge: [
+        './src/components/**/*.{js,ts,jsx,tsx}',
+        './src/containers/**/*.{js,ts,jsx,tsx}',
+        './src/pages/**/*.{js,ts,jsx,tsx}'
+    ],
+    darkMode: false,
     theme: {
         fontFamily: {
             serif: ['Heebo', 'serif']
@@ -8,28 +12,23 @@ module.exports = {
         extend: {
             colors: {
                 yellow: {
+                    500: '#FFB946',
+                    400: '#FFC76B',
+                    300: '#FFD590',
+                    200: '#FFE3B5',
+                    100: '#FFF1DA',
                     primary: '#FFB946'
                 },
                 red: {
+                    500: '#FF5A5A',
+                    400: '#FF7B7B',
+                    300: '#FF9C9C',
+                    200: '#FFBDBD',
+                    100: '#FFDEDE',
                     primary: '#FF5A5A'
-                },
-            },
-            fontSize: {
-                // [fontSize, lineHeight]
-                h1: ['2.5rem', '200%'],
-                h2: ['2.25rem', '200%'],
-                h3: ['2rem', '175%'],
-                h4: ['1.5rem', '175%'],
-                h5: ['1.125rem', '175%'],
-                paragraph: ['1rem', '150%'],
-            },
-            width: {
-                'cart-sidebar': '550px'
+                }
             }
         }
-    },
-    variants: {
-        extend: {}
     },
     plugins: [
         require('@tailwindcss/custom-forms')

@@ -7,13 +7,11 @@ interface Props {
 }
 
 const ProductList:React.FC<Props> = ({ className }) => {
-    const { products, isLoading, filter } = useProductContext()
-
-    console.log(filter);
+    const { products, isLoading } = useProductContext()
 
     useEffect(() => {
         console.log(products);
-    }, [products])
+    }, [])
     
     if (!isLoading) {
         return (
@@ -21,9 +19,6 @@ const ProductList:React.FC<Props> = ({ className }) => {
                 <div className="grid grid-cols-3 gap-12">
                     {
                         products.map(product => {
-                            if (filter && filter === product.type) {
-                                return <Product key={product.id} product={product} />    
-                            }
                             return (
                                 <Product key={product.id} product={product} />
                             )

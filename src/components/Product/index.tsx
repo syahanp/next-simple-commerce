@@ -1,53 +1,38 @@
 import React from 'react'
 import Link from 'next/link'
-import Text from 'components/Text'
+import Image from 'next/image'
 import { formatRupiah } from 'helper'
-import Cookie from 'js-cookie'
-import { useRouter } from 'next/router'
 
 interface Props {
     product: any
 }
 
-const Product:React.FC<Props> = ({ product }) => {
-    const router = useRouter()
-
-    if (!Cookie.getJSON('user')) {
-        router.push('/')
-        return null
+const Product:React.FC<Props> = ({ 
+    product: {
+        slug,
+        img,
+        name,
+        price,
     }
+}) => {
 
     return (
-        <Link href={`/products/${product.slug}`}>
-            <a className="h-auto border border-gray-200 rounded-md">
-                <img
-                    className='rounded-tl-md rounded-tr-md'
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${product.img.url}`} 
-                    alt={product.img.name}
-                />
+        <Link href={`/products/${slug}`}>
+            <a className="h-auto w-80 py-6 px-8 bg-white shadow-md rounded-md text-center">
+                <div className='p-6'>
+                    <Image
+                        className='h-auto w-auto'
+                        src={`${img.url}`} 
+                        alt={img.name}
+                        layout='responsive'
+                        height={200}
+                        width={200}
+                    />
+                </div>
 
-                <div className='p-4'>
-                    <div className='mb-4'>
-                        <Text variant='p'>{product.name}</Text>
-                    </div>
-
-                    <div className='mb-4'>
-                        <Text variant='h5'>Rp. {formatRupiah(product.price)}</Text>
-                    </div>
-
-                    <div className='flex justify-between items-center mb-6'>
-                        <div className='flex text-sm'>
-                            <img className='inline-block mr-2' src="/icon/star.svg" alt=""/>
-                            <div className='inline-block text-yellow-primary'>{product.rating}</div>
-                        </div>
-                        <div className='text-gray-400 text-sm'>
-                            Terjual {product.sold}
-                        </div>
-                    </div>
-
-                    <div className='text-gray-400 text-sm'>
-                        {product.location}
-                    </div>
+                <div>
+                    <p className='mb-4'>{name}</p>
+                    <h5 className='font-bold'>Rp. {formatRupiah(price)}</h5>
                 </div>
             </a>
         </Link>

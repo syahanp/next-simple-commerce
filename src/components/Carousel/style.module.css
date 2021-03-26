@@ -1,0 +1,30 @@
+@layer components {
+    
+    /* Carousel */
+    .carousel-container {
+        height: 470px;
+        
+        @apply w-screen flex justify-center items-center transition ease-in-out;
+    }
+
+    /* Arrow */
+    .arrow-base {
+        z-index: 9999;
+        height: 55px;
+        width: 55px;
+        user-select: none;
+
+        @apply absolute rounded-full shadow-lg flex justify-center items-center bg-white cursor-pointer;
+    }
+
+    .arrow-right {
+        position: absolute;
+        top: calc(50% - 23px);
+        right: 48px;
+    }
+
+    .arrow-left {
+        top: calc(50% - 23px);
+        left: 48px;
+    }
+}

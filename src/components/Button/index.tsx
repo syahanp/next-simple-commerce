@@ -1,72 +1,31 @@
-import React, { useCallback } from 'react'
+import React from 'react'
+import style from './style.module.css';
+import PulseLoader from 'react-spinners/PulseLoader'
 
 interface Props {
-    variant?: 'solid' | 'outline'
-    color?: 'primary' | 'danger'
+    variant?: 'solid-primary' | 'outline-primary' | 'solid-danger' | 'outline-danger'
+    size?: 'sm' | 'md' | 'lg' | 'xl'
     stacked?: boolean
+    isLoading?: boolean
     onClick?: () => void
 }
 
 const Button:React.FC<Props> = ({ 
     children, 
-    variant = 'solid', 
+    size = 'md',
+    variant = 'solid-primary', 
     stacked = false, 
-    color = 'primary',
+    isLoading = false,
     onClick
 }) => {
     
-    const stackedProps = stacked ? 'w-full text-center' : 'w-auto'
+    const isStacked = stacked ? style.isStacked : ''
 
-    const bgColor = useCallback(() => {
-        switch (variant) {
-            case 'solid':
-                if (color === 'primary') {
-                    return 'bg-yellow-primary'
-                }
-                if (color === 'danger') {
-                    return 'bg-yellow-danger'
-                }
-
-            case 'outline': 
-                if (color === 'primary') {
-                    return 'bg-transparent border border-yellow-primary hover:bg-yellow-primary hover:text-white transition'
-                }
-                if (color === 'danger') {
-                    return 'bg-transparent border border-red-danger hover:bg-danger-primary hover:text-white transition'
-                }
-        }
-    }, [])
-
-    const textColor = useCallback(() => {
-        switch (variant) {
-            case 'solid':
-                return 'text-white'
-
-            case 'outline': 
-                if (color === 'primary') {
-                    return 'text-yellow-primary'
-                }
-                if (color === 'danger') {
-                    return 'text-red-danger'
-                }
-        }
-    }, [])
-
-    switch (variant) {
-        case 'solid':
-            return (
-                <div onClick={onClick} className={`${stackedProps} ${bgColor()} ${textColor()} inline-block px-6 py-4 mb-4 text-lg font-medium rounded-md cursor-pointer`}>
-                    { children }
-                </div>
-            )
-        case 'outline':
-            return (
-                <div onClick={onClick} className={`${stackedProps} ${bgColor()} ${textColor()} inline-block px-6 py-4 mb-4 text-lg font-medium rounded-md cursor-pointer`}>
-                    { children }
-                </div>
-            )
-    }
-
+    return (
+        <div className={`${style[`btn-${variant}`]} ${isStacked}`}>
+            { children }
+        </div>
+    )
 }
 
 export default Button

@@ -1,0 +1,58 @@
+@layer components {
+
+    .btnBase {
+        @apply 
+            inline-block 
+            px-6 py-4 mb-4 
+            text-lg font-medium 
+            rounded-md 
+            cursor-pointer 
+            transition-all duration-200 ease-in-out;
+    }
+    
+    /* Button Variant */
+    .btn-solid-primary {
+        @apply 
+            btnBase 
+            shadow-md
+            bg-yellow-500 
+            text-white 
+            hover:bg-yellow-400 
+            focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75;
+    }
+
+    .btn-solid-danger {
+        @apply 
+            btnBase 
+            shadow-md
+            bg-red-500 
+            text-white 
+            hover:bg-red-400 
+            focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75;;
+    }
+
+    .btn-outline-primary {
+        @apply 
+            btnBase
+            bg-transparent 
+            border border-yellow-500 
+            text-yellow-500
+            hover:bg-yellow-500 hover:text-white;
+    }
+
+    .btn-outline-danger {
+        @apply 
+            btnBase
+            bg-transparent 
+            text-red-500
+            border border-red-500 
+            hover:bg-red-500 hover:text-white;
+    }
+
+    /* Button isStacked? */
+    .isStacked {
+        @apply w-full text-center;
+    }
+
+    /* Button Size */
+  }

@@ -1,11 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import Navbar from 'components/Navbar'
-import ProductPage from 'containers/ProductPage'
 import { GetStaticProps } from 'next'
 import api from 'api'
-import Cookie from 'js-cookie'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
+
+import Navbar from 'components/Navbar'
+import ProductContainer from 'containers/ProductContainer'
 
 const ProductContext = createContext(null)
 
@@ -14,17 +13,9 @@ export const useProductContext = () => {
 }
 
 const products = ({ productList }) => {
-    const router = useRouter()
     const [products, setProducts] = useState<Object[] | Object>([])
     const [isLoading, setLoading] = useState<Boolean>(true)
     const [filter, setFilter] = useState('all')
-
-    useEffect(() => {
-        if (!Cookie.getJSON('user')) {
-            router.push('/')
-            return null
-        }
-    }, [])
 
     useEffect(() => {
         if (productList.length > 0) {
@@ -32,7 +23,6 @@ const products = ({ productList }) => {
             setLoading(false)
         }
     }, [productList])
-
 
     const contextValue = {
         products, 
@@ -50,7 +40,7 @@ const products = ({ productList }) => {
             </Head>
 
             <Navbar />
-            <ProductPage />
+            <ProductContainer />
         </ProductContext.Provider>
     )
 }

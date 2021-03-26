@@ -1,0 +1,13 @@
+@layer components {
+    .searchbar {
+        width: 600px;
+        
+        @apply 
+            form-input 
+            py-3
+            border-gray-200
+            bg-gray-50 
+            placeholder-gray-400 
+            rounded-sm
+    }
+}

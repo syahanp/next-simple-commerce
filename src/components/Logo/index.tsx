@@ -5,7 +5,7 @@ interface Props {
     size?: 'text-2xl' | 'text-3xl' | 'text-4xl' | 'text-5xl' 
 }
 
-const Logo:React.FC<Props> = ({ size = 'text-3xl' }) => {
+const Logo:React.FC<Props> = ({ size = 'text-2xl' }) => {
     return (
         <Link href='/products'>
             <a className={`font-extrabold ${size}`}>

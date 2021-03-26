@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
-import api from 'api'
+import React from 'react'
 import ProductList from './ProductList'
 import Filter from './Filter'
 
-const ProductPage = () => {
+const ProductContainer = () => {
 
     return (
         <div className="max-w-7xl px-2 py-12 mx-auto">
@@ -15,4 +14,4 @@ const ProductPage = () => {
     )
 }
 
-export default ProductPage
+export default ProductContainer

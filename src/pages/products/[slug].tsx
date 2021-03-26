@@ -1,27 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter }  from 'next/router';
 import { GetStaticPaths } from 'next';
+import Link from 'next/link';
+import Head from 'next/head';
 import api from 'api';
+
 import Navbar from 'components/Navbar';
-import Text from 'components/Text';
 import { formatRupiah } from 'helper';
 import Button from 'components/Button';
 import { useGlobalContext } from 'context/GlobalContext';
-import Link from 'next/link'
-import Cookie from 'js-cookie'
-import Head from 'next/head';
 
 const ProductSingle = ({ product }) => {
     const { addItem, cartItems, setCartIsOpen } = useGlobalContext()
 
     const router = useRouter()
-
-    useEffect(() => {
-        if (!Cookie.getJSON('user')) {
-            router.push('/')
-            return null
-        }
-    }, [])
 
     return (
         <>
@@ -60,11 +52,11 @@ const ProductSingle = ({ product }) => {
                         </div>
 
                         <div className='mb-4'>
-                            <Text variant='h2'>Rp. {formatRupiah(product.price)}</Text>
+                            <h2>Rp. {formatRupiah(product.price)}</h2>
                         </div>
 
                         <div className='mb-8'>
-                            <Text>{product.description}</Text>
+                            <p>{product.description}</p>
                         </div>
 
                         {   
@@ -73,7 +65,7 @@ const ProductSingle = ({ product }) => {
                                 <div className='text-md text-gray-400 mb-2'>
                                     You have this item in your cart
                                 </div>
-                                <Button onClick={() => setCartIsOpen(true)} variant='outline'>SEE CART</Button>
+                                <Button onClick={() => setCartIsOpen(true)} variant='outline-primary'>SEE CART</Button>
                             </> :
                             <Button onClick={() => addItem(product)}>ADD TO CART</Button>
                         }
