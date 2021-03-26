@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+    .recommended_list {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+        grid-template-rows: auto;
+        grid-gap: 2rem;
+    }
+}

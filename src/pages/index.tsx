@@ -1,13 +1,13 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
+import api from 'api'
 
 import Navbar from 'components/Navbar'
 import Carousel from 'components/Carousel'
 import Container from 'components/Layout/Container'
-import Recommended from 'containers/LandingPageContainer/Recommended'
-import Trending from 'containers/LandingPageContainer/Trending'
-import About from 'containers/LandingPageContainer/About'
-import api from 'api'
+import RecommendedProductList from 'components/RecommendedProductList'
+import TrendingProductList from 'components/TrendingProductList'
+import About from 'components/About'
 
 const LandingPage = ({ recommendedItems, trendingItems }) => {
     return (
@@ -19,9 +19,9 @@ const LandingPage = ({ recommendedItems, trendingItems }) => {
             <br/><br/>
             
             <Container>
-                <Recommended items={recommendedItems} />
+                <RecommendedProductList items={recommendedItems} />
 
-                <Trending items={trendingItems} />
+                <TrendingProductList items={trendingItems} />
 
                 <About />
             </Container>

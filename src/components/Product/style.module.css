@@ -1,0 +1,27 @@
+@tailwind components;
+
+@layer components {
+    .product_container {
+        max-width: 285px;
+        margin: 0 auto;
+        
+        @apply block h-auto py-6 px-8 bg-white shadow-md rounded-md text-center
+    }
+
+    .product_image {
+        @apply p-2 mb-6
+    }
+
+    .product_image img {
+        max-height: 140px;
+        margin: 0 auto;
+    }
+
+    .product_metadata p {
+        @apply mb-4
+    }
+
+    .product_metadata h5 {
+        @apply font-bold
+    }
+}
