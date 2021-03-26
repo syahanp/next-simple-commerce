@@ -2,8 +2,6 @@ import Logo from 'components/Logo';
 import React from 'react';
 import Account from './Account';
 import Cart from './Cart';
-import Categories from './Categories';
-import Searchbar from './Searchbar';
 
 const Navbar = () => {
     return (
@@ -12,10 +10,7 @@ const Navbar = () => {
                 <div>
                     <Logo />
                 </div>
-                <div className='flex items-center'>
-                    <Categories />
-                    <Searchbar />
-                </div>
+
                 <div className='flex'>
                     <Cart className='mr-4' />
                     <Account />

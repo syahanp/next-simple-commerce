@@ -1,4 +1,3 @@
-import Text from 'components/Text'
 import { useProductContext } from 'pages/products'
 import React from 'react'
 
@@ -17,7 +16,7 @@ const Filter:React.FC<Props> = ({ className }) => {
     return (
         <div className={className}>
             <div className='mb-6'>
-                <Text variant='h4'>Sort Items</Text>
+                <h4>Sort Items</h4>
             </div>
             
             <div className='mb-4'>

@@ -1,8 +1,7 @@
 module.exports = {
     purge: [
-        './src/components/**/*.{js,ts,jsx,tsx}',
-        './src/containers/**/*.{js,ts,jsx,tsx}',
-        './src/pages/**/*.{js,ts,jsx,tsx}'
+        './public/**/*.html',
+        './src/**/*.{js,jsx,ts,tsx,vue}',
     ],
     darkMode: false,
     theme: {
